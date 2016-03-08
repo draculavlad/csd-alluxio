@@ -1,0 +1,58 @@
+{
+  "name": "ALLUXIO_ON_YARN",
+  "label": "ALLUXIO CSD",
+  "description": "The alluxio service",
+  "version": "1.0",
+  "runAs": {
+    "user": "root",
+    "group": "root"
+  },
+  "maxInstances": 1,
+  "inExpressWizard": true,
+  "icon": "images/icon.png",
+  "compatibility": {
+    "generation": 2,
+    "cdhVersion": {
+      "min": "5.5",
+      "max": "5.5"
+    }
+  },
+  "serviceDependencies": [
+    {
+      "name": "HADOOP",
+      "required": "true"
+    },
+    {
+      "name": "HDFS",
+      "required": "true"
+    },
+    {
+      "name": "YARN",
+      "required": "true"
+    }
+  ],
+  "roles": [
+    {
+      "name": "ALLUXIO_SERVICE",
+      "lable": "ALLUXIO SERVICE",
+      "pluralLable": "ALLUXIO SERVICES",
+      "parameters": [
+        {
+          "name" : "port_num",
+          "label" : "service port",
+          "description" : "The =server port number",
+          "required" : "true",
+          "type" : "port",
+          "default" : 8080
+        }
+      ],
+      "startRunner" : {
+        "program" : "scripts/control.sh",
+        "args" : [ "start" ],
+        "environmentVariables" : {
+          "WEBSERVER_PORT" : "${port_num}"
+        }
+      }
+    }
+  ]
+}
