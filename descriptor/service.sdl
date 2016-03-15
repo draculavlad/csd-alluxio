@@ -1,5 +1,5 @@
 {
-  "name": "ALLUXIO_ON_YARN",
+  "name": "ALLUXIO",
   "label": "ALLUXIO CSD",
   "description": "The alluxio service",
   "version": "1.0",
@@ -13,23 +13,30 @@
   "compatibility": {
     "generation": 2,
     "cdhVersion": {
-      "min": "5.5",
-      "max": "5.5"
+      "min": "4",
+      "max": "5"
     }
   },
   "serviceDependencies": [
     {
       "name": "HADOOP",
-      "required": "true"
+      "required": "false"
     },
     {
       "name": "HDFS",
-      "required": "true"
+      "required": "false"
     },
     {
       "name": "YARN",
-      "required": "true"
+      "required": "false"
+    },
+    {
+      "name": "ZOOKEEPER",
+      "required": "false"
     }
+  ],
+  "parameters": [
+    "":""
   ],
   "roles": [
     {
@@ -43,7 +50,7 @@
           "description" : "The =server port number",
           "required" : "true",
           "type" : "port",
-          "default" : 8080
+          "default" : 19998
         }
       ],
       "startRunner" : {
