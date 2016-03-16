@@ -1,0 +1,40 @@
+{
+  "name": "ALLUXIO",
+  "label": "ALLUXIO",
+  "description": "GUESS WHAT!",
+  "version": "1.0.0",
+  "runAs": {
+    "user": "alluxio",
+    "group": "alluxio"
+  },
+  /* CM removes it from Express Wizard for CDH 5 */
+  "inExpressWizard" : true,
+  "icon" : "images/icon.png",
+  "parcel": {
+    "repoUrl": "",
+    "requiredTags" : ["alluxio", "other"],
+    "optionalTags" : ["alluxio-plugin"]
+  },
+  "serviceDependencies" : [
+    {
+      "name" : "HDFS",
+      "required" : "false"
+    },
+    {
+      "name" : "YARN",
+      "required" : "false"
+    },
+    {
+      "name" : "SWIFT",
+      "required" : "false"
+    },
+    {
+      "name" : "MESOS",
+      "required" : "false"
+    }
+  ],
+  "rolesWithExternalLinks" : ["AlluxioMaster", "AlluxioWorker"],
+  "roles": [
+
+  ]
+}
